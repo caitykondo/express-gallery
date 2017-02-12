@@ -12,7 +12,7 @@ router.route('/')
 
 router.route('/new')
   .get((req, res) => {
-    //
+    res.render('./gallery/new');
   })
   .post((req, res) => {
     Photo.create({author: req.body.author, link: req.body.link, description: req.body.description })
