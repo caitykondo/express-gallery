@@ -7,6 +7,9 @@
   <a href="{{link}}">{{link}}</a>
 </div>
 <div>
-  <a href="edit/{{id}}"><button>Edit</button></a>
-  <a href="delete/{{id}}"><button>Delete</button></a>
+  <a href="{{id}}/edit"><button>Edit</button></a>
+  <form method="POST" action="/gallery/{{id}}">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+  </form>
 </div>

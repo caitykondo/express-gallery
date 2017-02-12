@@ -39,4 +39,10 @@ router.route('/:id')
       });
   });
 
+router.route('/:id/edit')
+  .get((req, res) => {
+    Photo.findOne({where: {id : req.params.id}})
+      .then((photo) => res.render('./gallery/edit', photo.dataValues));
+  })
+
 module.exports = router;
