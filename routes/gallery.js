@@ -15,14 +15,28 @@ router.route('/new')
     res.render('./gallery/new');
   })
   .post((req, res) => {
-    Photo.create({author: req.body.author, link: req.body.link, description: req.body.description })
-      .then((photo) => res.redirect(`/gallery/${photo.id}`));
+    Photo.create({ author: req.body.author, link: req.body.link, description: req.body.description })
+      .then((photo) => res.redirect(303, `/gallery/${photo.id}`));
   });
 
 router.route('/:id')
   .get((req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => res.render('./gallery/photo', photo.dataValues));
+  })
+  .put((req, res) => {
+    Photo.findOne({where: {id : req.params.id}})
+      .then((photo) => {
+        photo.update({ author: req.body.author, link: req.body.link, description: req.body.description });
+        res.redirect(303, `/gallery/${photo.id}`); //add editing successful message
+      });
+  })
+  .delete((req, res) => {
+    Photo.findOne({where: {id : req.params.id}})
+      .then((photo) => {
+        photo.destroy();
+        res.redirect(303, '/gallery'); //add success message
+      });
   });
 
 module.exports = router;
