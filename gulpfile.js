@@ -9,7 +9,7 @@ gulp.task('scss', () => {
 })
 
 gulp.task('browserSync', () => {
-  browserSync.init(['./public'], {
+  return browserSync.init(['./public'], {
     server: {
       baseDir: './public'
     }
