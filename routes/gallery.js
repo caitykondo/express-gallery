@@ -22,8 +22,6 @@ router.route('/new')
 router.route('/:id')
   .get((req, res) => {
     Photo.findOne({where: {id : req.params.id}})
-      // .then((photo) => {console.log(photo)});
-    // Photo.findAll({ where: { id: req.params.id}} )
       .then((photo) => res.render('./gallery/photo', photo.dataValues));
   });
 
