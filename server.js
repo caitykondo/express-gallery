@@ -6,7 +6,7 @@ const app = express();
 
 const hbs = handlebars.create({
   extname: 'hbs',
-  defaultLayout: 'app'
+  defaultLayout: 'app',
 });
 
 app.engine('hbs', hbs.engine);
