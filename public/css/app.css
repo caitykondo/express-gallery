@@ -53,7 +53,34 @@ table {
 body {
   font-family: 'Arial', sans-serif; }
 
-header h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #999; }
+.container {
+  max-width: 90%;
+  text-align: center;
+  margin: auto; }
+
+img {
+  max-width: 50%; }
+
+header {
+  margin: 50px auto 0 auto;
+  color: #8a8a8a;
+  width: relative; }
+  header .container {
+    border-top: 1px dotted #999;
+    padding: 28px 0 60px 0; }
+  header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    display: inline-block;
+    width: relative;
+    border-right: 1px solid #999;
+    padding: 0 20px 0 0;
+    vertical-align: top; }
+  header aside {
+    display: inline-block;
+    width: 300px;
+    font-size: 0.75rem;
+    padding: 0 0 0 20px;
+    text-align: left; }
