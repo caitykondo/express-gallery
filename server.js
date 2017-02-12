@@ -14,4 +14,5 @@ app.use('/gallery', gallery);
 
 app.listen(PORT, () => {
   console.log('listening on', PORT);
+  db.sequelize.sync();
 });
