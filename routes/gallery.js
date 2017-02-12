@@ -7,7 +7,7 @@ const { Photo } = db;
 router.route('/')
   .get((req, res) => {
     Photo.findAll()
-      .then((photos) => res.render('./gallery/', {photos}))
+      .then((photos) => res.render('./gallery/', {photos}));
   });
 
 router.route('/new')
@@ -28,7 +28,8 @@ router.route('/:id')
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => {
         photo.update({ author: req.body.author, link: req.body.link, description: req.body.description });
-        res.redirect(303, `/gallery/${photo.id}`); //add editing successful message
+        photo.dataValues.updated = true;
+        res.render('./gallery/photo', photo.dataValues);
       });
   })
   .delete((req, res) => {

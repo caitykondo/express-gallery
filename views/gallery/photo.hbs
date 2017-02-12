@@ -1,3 +1,6 @@
+{{#if updated}}
+<h1>Updated!</h1>
+{{/if}}
 <a href="/gallery">Back to Gallery</a>
 <div class="photo">
   <h1>By {{author}}</h1>
@@ -8,6 +11,7 @@
 </div>
 <div>
   <a href="{{id}}/edit"><button>Edit</button></a>
+  {{!-- rework delete to throw confirmation before deletion --}}
   <form method="POST" action="/gallery/{{id}}">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Delete</button>
