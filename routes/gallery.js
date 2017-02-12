@@ -7,7 +7,7 @@ const { Photo } = db;
 router.route('/')
   .get((req, res) => {
     Photo.findAll()
-      .then((photos) => res.render('./gallery/', {photos}));
+      .then((photos) => res.render('./gallery/', {photos}))
   });
 
 router.route('/new')
