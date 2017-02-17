@@ -1,15 +1,17 @@
-<img src="{{link}}" alt="{{description}}">
+<div id="edit">
+  <img src="{{link}}" alt="{{description}}">
 
-<form name="editPhoto" id="editPhoto" action="/gallery/{{id}}" method="POST">
-  <label for="link">Link</label>
-  <input type="text" name="link" value="{{link}}">
+  <form name="editPhoto" id="editPhoto" action="/gallery/{{id}}" method="POST">
+    <label for="link">Link</label>
+    <input type="text" name="link" value="{{link}}">
 
-  <label for="author">Author</label>
-  <input type="text" name="author" value="{{author}}">
+    <label for="author">Author</label>
+    <input type="text" name="author" value="{{author}}">
 
-  <label for="description">Description</label>
-  <input type="text" name="description" value="{{description}}">
+    <label for="description">Description</label>
+    <input type="text" name="description" value="{{description}}">
 
-  <input type="hidden" name="_method" value="PUT">
-  <input id= "editPhoto" type="submit" value="Save Changes">
-</form>
+    <input type="hidden" name="_method" value="PUT">
+    <input id= "editPhoto" type="submit" value="Save Changes">
+  </form>
+</div>

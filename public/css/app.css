@@ -54,20 +54,25 @@ body {
   font-family: 'Arial', sans-serif; }
 
 .container {
-  max-width: 90%;
+  width: 90%;
   text-align: center;
-  margin: auto; }
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
 
 img {
-  max-width: 50%; }
+  width: 100%;
+  margin: auto; }
 
 header {
   margin: 50px auto 0 auto;
+  width: relative;
   color: #8a8a8a;
-  width: relative; }
-  header .container {
-    border-top: 1px dotted #999;
-    padding: 28px 0 60px 0; }
+  border-top: 1px dotted #999;
+  padding: 28px 0 60px 0; }
+  header a {
+    color: #8a8a8a; }
   header h1 {
     font-size: 4rem;
     font-weight: 900;
@@ -84,3 +89,27 @@ header {
     font-size: 0.75rem;
     padding: 0 0 0 20px;
     text-align: left; }
+
+#index .photo {
+  margin: auto; }
+  #index .photo h1 {
+    text-align: left;
+    font-size: 1rem;
+    color: #8a8a8a; }
+  #index .photo p {
+    text-align: left;
+    font-size: 1rem;
+    color: #8a8a8a; }
+  #index .photo:first-child h1 {
+    display: none; }
+  #index .photo:first-child p {
+    display: none; }
+
+#index .photo:nth-child(n+2) {
+  flex: 0 1 auto;
+  width: 100%; }
+  #index .photo:nth-child(n+2) img {
+    width: 100%; }
+  @media (min-width: 728px) {
+    #index .photo:nth-child(n+2) {
+      width: 33%; } }
