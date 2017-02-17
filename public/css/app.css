@@ -113,3 +113,8 @@ header {
   @media (min-width: 728px) {
     #index .photo:nth-child(n+2) {
       width: 33%; } }
+
+#login form label {
+  text-align: left;
+  padding: 10px 0;
+  display: block; }
