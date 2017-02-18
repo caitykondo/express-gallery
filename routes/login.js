@@ -8,17 +8,22 @@ router.route('/')
   .get(( req, res ) => {
     res.render('./login');
   })
-  .post( passport.authenticate('local', {
-    successRedirect: '/secret',
-    failureRedirect: '/login'
+  .post(
+    // ()=> {console.log('hit')},
+    passport.authenticate('local', {
+    successRedirect: '/gallery',
+    failureRedirect: '/login',
   }));
+  // .post( passport.authenticate('local'), function(req, res) {
+  //   res.redirect('/gallery');
+  // });
 
 router.route('/signup')
   .get(( req, res ) => {
     res.render('./signup');
   })
   .post(( req, res) => {
-    console.log(req.body);
+    // check if username exists
     User.create({ username: req.body.username, password: req.body.password })
     .then((user) => res.redirect(303, '/gallery/'));
   });

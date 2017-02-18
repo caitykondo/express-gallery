@@ -1,18 +1,10 @@
 const express = require('express');
 let router = express.Router();
+// const isAuthenticated = require('./helpers/isAuthenticated');
 
 router.route('/')
-  .get(isAuthenticated, ( req, res ) => {
+  .get(( req, res ) => {
     res.send('secrets');
   });
-
-function isAuthenticated(req, res, next) {
-  if(req.isAuthenticated()){
-    next();
-  }else{
-    console.log('not authenticated');
-    res.redirect('/login');
-  }
-}
 
 module.exports = router;
