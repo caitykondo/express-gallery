@@ -9,14 +9,10 @@ router.route('/')
     res.render('./login');
   })
   .post(
-    // ()=> {console.log('hit')},
     passport.authenticate('local', {
     successRedirect: '/gallery',
     failureRedirect: '/login',
   }));
-  // .post( passport.authenticate('local'), function(req, res) {
-  //   res.redirect('/gallery');
-  // });
 
 router.route('/signup')
   .get(( req, res ) => {

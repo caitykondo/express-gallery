@@ -4,6 +4,9 @@ let router = express.Router();
 const db = require('./../models');
 const { Photo } = db;
 
+const isAuthenticated = require('./../helpers/isAuthenticated');
+
+
 router.route('/')
   .get((req, res) => {
     Photo.findAll()
@@ -11,10 +14,10 @@ router.route('/')
   });
 
 router.route('/new')
-  .get((req, res) => {
+  .get(isAuthenticated, (req, res) => {
     res.render('./gallery/new');
   })
-  .post((req, res) => {
+  .post(isAuthenticated, (req, res) => {
     Photo.create({ author: req.body.author, link: req.body.link, description: req.body.description })
       .then((photo) => res.redirect(303, `/gallery/${photo.id}`));
   });
@@ -24,7 +27,7 @@ router.route('/:id')
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => res.render('./gallery/photo', photo.dataValues));
   })
-  .put((req, res) => {
+  .put(isAuthenticated,(req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => {
         photo.update({ author: req.body.author, link: req.body.link, description: req.body.description });
@@ -32,7 +35,7 @@ router.route('/:id')
         res.render('./gallery/photo', photo.dataValues);
       });
   })
-  .delete((req, res) => {
+  .delete(isAuthenticated, (req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => {
         photo.destroy();
@@ -41,9 +44,9 @@ router.route('/:id')
   });
 
 router.route('/:id/edit')
-  .get((req, res) => {
+  .get(isAuthenticated, (req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => res.render('./gallery/edit', photo.dataValues));
-  })
+  });
 
 module.exports = router;
