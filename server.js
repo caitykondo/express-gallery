@@ -18,6 +18,11 @@ const isAuthenticated = require('./helpers/isAuthenticated');
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
+// redis for cacheing
+const redis = require('redis');
+client = redis.createClient();
+const cache = require('express-redis-cache')({client: client, expire: 60});
+
 app.use(express.static('./'));
 
 app.use(bodyParser.urlencoded({ extended : false }));
