@@ -51,6 +51,7 @@ table {
   border-spacing: 0; }
 
 #index {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-content: space-around; }
@@ -116,14 +117,14 @@ body {
     margin: 0 auto; }
   body header {
     margin: 50px auto 0 auto;
-    width: relative;
+    width: 100%;
     color: #8a8a8a;
     border-top: 1px dotted #999;
     padding: 28px 0 60px 0; }
     body header a {
       color: #8a8a8a; }
     body header h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.125rem;
@@ -133,6 +134,7 @@ body {
       vertical-align: top; }
       @media (min-width: 728px) {
         body header h1 {
+          font-size: 4rem;
           border-right: 1px solid #999; } }
     body header aside {
       width: 300px;

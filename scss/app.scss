@@ -22,7 +22,7 @@ body {
 
   header {
     margin: 50px auto 0 auto;
-    width: relative;
+    width: 100%;
     color: $textMidGrey;
     border-top: 1px dotted $borderGrey;
     padding: 28px 0 60px 0;
@@ -32,7 +32,7 @@ body {
     }
 
     h1{
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.125rem;
@@ -42,6 +42,7 @@ body {
       vertical-align: top;
 
       @media( min-width: 728px ){
+        font-size: 4rem;
         border-right: 1px solid $borderGrey;
       }
 
