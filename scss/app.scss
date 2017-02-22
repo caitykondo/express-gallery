@@ -2,105 +2,61 @@
 @import "partials/reset";
 @import "partials/colors";
 
+@import "partials/index";
+@import "partials/login";
+
 body {
   font-family: 'Arial', sans-serif;
-}
-.container{
-  width: 90%;
-  text-align: center;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-img {
-  width: 100%;
-  margin: auto;
-}
-
-header {
-  margin: 50px auto 0 auto;
-  width: relative;
-  color: $textMidGrey;
-  border-top: 1px dotted $borderGrey;
-  padding: 28px 0 60px 0;
-  a {
-    color: $textMidGrey;
-  }
-  h1{
-    font-size: 4rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    display: inline-block;
-    width: relative;
-    border-right: 1px solid $borderGrey;
-    padding: 0 20px 0 0;
-    vertical-align: top;
-  }
-  aside{
-    display: inline-block;
-    width: 300px;
-    font-size: 0.75rem;
-    padding: 0 0 0 20px;
-    text-align: left;
-  }
-}
-
-#index {
-  & .photo {
-
+  .container{
+    width: 90%;
+    text-align: center;
     margin: auto;
-    h1 {
-      text-align: left;
-      font-size: 1rem;
-      color: $textMidGrey;
-    }
-    p{
-      text-align: left;
-     font-size: 1rem;
-      color: $textMidGrey;
-    }
-    &:first-child{
-      h1 {
-        display: none;
-      }
-      p {
-        display: none;
-      }
-    }
+    display: flex;
+    flex-flow: row wrap;
   }
 
-  & .photo:nth-child(n+2){
-    // display: none;
-    flex: 0 1 auto;
+  img {
     width: 100%;
+    margin: 0 auto;
+  }
 
-    img {
-      width: 100%;
+  header {
+    margin: 50px auto 0 auto;
+    width: relative;
+    color: $textMidGrey;
+    border-top: 1px dotted $borderGrey;
+    padding: 28px 0 60px 0;
+
+    a {
+      color: $textMidGrey;
     }
-    @media (min-width: 728px){
-      width: 33%;
+
+    h1{
+      font-size: 4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.125rem;
+      display: inline-block;
+      width: relative;
+      padding: 0 20px 0 0;
+      vertical-align: top;
+
+      @media( min-width: 728px ){
+        border-right: 1px solid $borderGrey;
+      }
+
+    }
+    aside{
+      width: 300px;
+      font-size: 0.75rem;
+      padding: 0 0 0 20px;
+      text-align: left;
+      display: none;
+
+      @media ( min-width: 728px ){
+        display: inline-block;
+      }
+
     }
   }
 }
-
-#login{
-  form {
-    label{
-      text-align:left;
-      padding: 10px 0;
-      display: block;
-    }
-  }
-}
-// #edit {
-//   display: flex;
-//   justify-content: center;
-//   img{
-
-//   }
-//   form {
-
-//   }
-// }

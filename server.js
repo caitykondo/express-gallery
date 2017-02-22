@@ -77,7 +77,7 @@ const login = require('./routes/login');
 const secret = require('./routes/secret');
 
 
-app.use('/gallery', gallery);
+app.use('/gallery', cache.route(), gallery);
 app.use('/login', login);
 app.use('/secret', isAuthenticated, secret);
 

@@ -1,16 +1,11 @@
 <div id="index">
-  <div>
-    <a href="gallery/new">+ New Photo</a>
-  </div>
-  <div class="container">
-    {{#each photos}}
-      <div class="photo" data-photoId= "{{@index}}">
-        <a href="/gallery/{{id}}">
-          <img src="{{link}}" alt="{{description}}">
-        </a>
-        <h1>By {{author}}</h1>
-        <p>{{description}}</p>
-      </div>
-    {{/each}}
-  </div>
+  {{#each photos}}
+    <div class="photo">
+      <a href="/gallery/{{id}}">
+        <img src="{{link}}" alt="{{description}}">
+      </a>
+      <h2>{{description}}</h2>
+      <a class="link" href="{{link}}">{{link}}</a>
+    </div>
+  {{/each}}
 </div>

@@ -50,71 +50,96 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  font-family: 'Arial', sans-serif; }
-
-.container {
-  width: 90%;
-  text-align: center;
-  margin: auto;
+#index {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
-
-img {
-  width: 100%;
-  margin: auto; }
-
-header {
-  margin: 50px auto 0 auto;
-  width: relative;
-  color: #8a8a8a;
-  border-top: 1px dotted #999;
-  padding: 28px 0 60px 0; }
-  header a {
-    color: #8a8a8a; }
-  header h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    display: inline-block;
-    width: relative;
-    border-right: 1px solid #999;
-    padding: 0 20px 0 0;
-    vertical-align: top; }
-  header aside {
-    display: inline-block;
-    width: 300px;
-    font-size: 0.75rem;
-    padding: 0 0 0 20px;
-    text-align: left; }
-
-#index .photo {
-  margin: auto; }
-  #index .photo h1 {
-    text-align: left;
-    font-size: 1rem;
-    color: #8a8a8a; }
-  #index .photo p {
-    text-align: left;
-    font-size: 1rem;
-    color: #8a8a8a; }
-  #index .photo:first-child h1 {
-    display: none; }
-  #index .photo:first-child p {
-    display: none; }
-
-#index .photo:nth-child(n+2) {
-  flex: 0 1 auto;
-  width: 100%; }
-  #index .photo:nth-child(n+2) img {
+  align-content: space-around; }
+  #index .photo {
+    display: flex;
+    flex-flow: column nowrap; }
+    #index .photo h2, #index .photo .link {
+      text-align: left;
+      font-size: 1rem;
+      color: #8a8a8a;
+      padding: 0 0 5px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-height: 200px;
+      text-decoration: none;
+      overflow: hidden; }
+  #index .photo:first-child {
+    max-height: 400px;
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px dotted #999;
+    position: relative; }
+    #index .photo:first-child:first-child:after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+    #index .photo:first-child h2 {
+      display: none; }
+    #index .photo:first-child .link {
+      display: none; }
+  #index .photo:nth-child(n+2) {
+    padding: 2%;
     width: 100%; }
-  @media (min-width: 728px) {
-    #index .photo:nth-child(n+2) {
-      width: 33%; } }
+    #index .photo:nth-child(n+2) a {
+      max-height: 200px;
+      overflow: hidden;
+      margin-bottom: 10px; }
+    @media (min-width: 728px) {
+      #index .photo:nth-child(n+2) {
+        max-width: 32%; } }
+  #index .photo:nth-child(4n+2), #index .photo:nth-child(4n+4), #index .photo:nth-child(4n+5), #index .photo:nth-child(4n+7) {
+    padding: 16px 0; }
 
 #login form label {
   text-align: left;
   padding: 10px 0;
   display: block; }
+
+body {
+  font-family: 'Arial', sans-serif; }
+  body .container {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap; }
+  body img {
+    width: 100%;
+    margin: 0 auto; }
+  body header {
+    margin: 50px auto 0 auto;
+    width: relative;
+    color: #8a8a8a;
+    border-top: 1px dotted #999;
+    padding: 28px 0 60px 0; }
+    body header a {
+      color: #8a8a8a; }
+    body header h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.125rem;
+      display: inline-block;
+      width: relative;
+      padding: 0 20px 0 0;
+      vertical-align: top; }
+      @media (min-width: 728px) {
+        body header h1 {
+          border-right: 1px solid #999; } }
+    body header aside {
+      width: 300px;
+      font-size: 0.75rem;
+      padding: 0 0 0 20px;
+      text-align: left;
+      display: none; }
+      @media (min-width: 728px) {
+        body header aside {
+          display: inline-block; } }

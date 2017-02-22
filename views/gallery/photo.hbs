@@ -9,8 +9,18 @@
     <p>{{description}}</p>
     <h2>Source:</h2>
     <a href="{{link}}">{{link}}</a>
-  </div>
   <div>
+  <div class="side-bar">
+    {{#each photos}}
+      <div class="photo" data-photoId= "{{@index}}">
+          <img src="{{link}}" alt="{{description}}">
+        <h1>By {{author}}</h1>
+        <p>{{description}}</p>
+        <h2>Source:</h2>
+        <a href="{{link}}">{{link}}</a>
+      <div>
+    {{/each}}
+  </div>
 </div>
 <div class="container">
   <a href="{{id}}/edit"><button>Edit</button></a>
