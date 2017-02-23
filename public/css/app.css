@@ -147,7 +147,16 @@ table {
   @media (min-width: 857px) {
     #details .photo:first-child {
       width: 66%;
-      height: 100%; } }
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap; }
+      #details .photo:first-child img {
+        width: 100%;
+        display: block; }
+      #details .photo:first-child h2, #details .photo:first-child a {
+        width: 100%;
+        overflow: hidden;
+        display: block; } }
   #details .photo:nth-child(n+2) .controls {
     display: none; }
   @media (min-width: 857px) {
