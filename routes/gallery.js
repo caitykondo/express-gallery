@@ -18,6 +18,7 @@ router.route('/new')
     res.render('./gallery/new');
   })
   .post(isAuthenticated, (req, res) => {
+    console.log(req.body);
     Photo.create({ author: req.body.author, link: req.body.link, description: req.body.description })
       .then((photo) => res.redirect(303, `/gallery/${photo.id}`));
   });

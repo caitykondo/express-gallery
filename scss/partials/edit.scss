@@ -1,0 +1,44 @@
+#edit{
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-flow:  row nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  // @media(min-width: 857px){
+  //   flex-flow: row wrap;
+  // }
+
+  .photo{
+    width: 100%;
+    @media(min-width: 857px){
+      width: 60%;
+    }
+  }
+  #editPhoto{
+    width: 20%;
+    margin-left: 5%;
+    label {
+      text-align: left;
+      display: block;
+    }
+    input {
+      width: 100%;
+      margin: 4px 0 16px 0;
+      font-size: 0.75rem;
+    }
+    input#editPhotoButton{
+      background: #fff;
+      border: 1px solid $textMidGrey;
+      color: $textMidGrey;
+      padding: 8px 12px;
+      text-transform: uppercase;
+      &:hover{
+        cursor: pointer;
+        color: $textMidGreyHover;
+        border: 1px solid $textMidGreyHover;
+      }
+    }
+  }
+
+}

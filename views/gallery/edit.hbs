@@ -1,5 +1,7 @@
 <div id="edit">
-  <img src="{{link}}" alt="{{description}}">
+  <div class="photo">
+    <img src="{{link}}" alt="{{description}}">
+  </div>
 
   <form name="editPhoto" id="editPhoto" action="/gallery/{{id}}" method="POST">
     <label for="link">Link</label>
@@ -12,6 +14,6 @@
     <input type="text" name="description" value="{{description}}">
 
     <input type="hidden" name="_method" value="PUT">
-    <input id= "editPhoto" type="submit" value="Save Changes">
+    <input id= "editPhotoButton" type="submit" value="Save Changes">
   </form>
 </div>
