@@ -1,0 +1,38 @@
+#details {
+  display: flex;
+  flex-flow: column wrap;
+  width:100%;
+  height: relative;
+  align-items: flex-end;
+  justify-content: flex-start;
+  align-content: center;
+
+  .photo{
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+     h2, a.link {
+      text-align: left;
+      font-size: 1rem;
+      width: relative;
+      color: $textMidGrey;
+      padding: 0 0 5px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+  }
+  .photo:first-child{
+    @media(min-width: 728px){
+      width: 66%;
+      height: 100%;
+    }
+  }
+
+  .photo:nth-child(n+2){
+     @media(min-width: 728px){
+      width: 20%;
+      padding: 0 0 16px 2%;
+    }
+  }
+}

@@ -87,17 +87,55 @@ table {
     #index .photo:first-child .link {
       display: none; }
   #index .photo:nth-child(n+2) {
-    padding: 2%;
+    padding: 16px 2%;
     width: 100%; }
     #index .photo:nth-child(n+2) a {
       max-height: 200px;
       overflow: hidden;
-      margin-bottom: 10px; }
+      margin-bottom: 16px; }
     @media (min-width: 728px) {
       #index .photo:nth-child(n+2) {
         max-width: 32%; } }
-  #index .photo:nth-child(4n+2), #index .photo:nth-child(4n+4), #index .photo:nth-child(4n+5), #index .photo:nth-child(4n+7) {
+  #index .photo:nth-child(6n+2), #index .photo:nth-child(6n+4), #index .photo:nth-child(6n+5), #index .photo:nth-child(6n+7) {
     padding: 16px 0; }
+  #index .photo:nth-child(3n+2) {
+    position: relative; }
+    @media (min-width: 728px) {
+      #index .photo:nth-child(3n+2):after {
+        content: '';
+        border-bottom: 1px dotted #999;
+        width: 312.5%;
+        right: 0; } }
+
+#details {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  height: relative;
+  align-items: flex-end;
+  justify-content: flex-start;
+  align-content: center; }
+  #details .photo {
+    text-align: left;
+    overflow: hidden;
+    width: 100%; }
+    #details .photo h2, #details .photo a.link {
+      text-align: left;
+      font-size: 1rem;
+      width: relative;
+      color: #8a8a8a;
+      padding: 0 0 5px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-decoration: none; }
+  @media (min-width: 728px) {
+    #details .photo:first-child {
+      width: 66%;
+      height: 100%; } }
+  @media (min-width: 728px) {
+    #details .photo:nth-child(n+2) {
+      width: 20%;
+      padding: 0 0 16px 2%; } }
 
 #login form label {
   text-align: left;
@@ -132,7 +170,7 @@ body {
       width: relative;
       padding: 0 20px 0 0;
       vertical-align: top; }
-      @media (min-width: 728px) {
+      @media (min-width: 857px) {
         body header h1 {
           font-size: 4rem;
           border-right: 1px solid #999; } }
@@ -142,6 +180,10 @@ body {
       padding: 0 0 0 20px;
       text-align: left;
       display: none; }
-      @media (min-width: 728px) {
+      @media (min-width: 857px) {
         body header aside {
           display: inline-block; } }
+  body footer {
+    height: 60px;
+    text-align: center;
+    color: #8a8a8a; }

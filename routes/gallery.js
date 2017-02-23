@@ -24,8 +24,11 @@ router.route('/new')
 
 router.route('/:id')
   .get((req, res) => {
-    Photo.findOne({where: {id : req.params.id}})
-      .then((photo) => res.render('./gallery/photo', photo.dataValues));
+    Photo.findAll({where: {
+      id : [req.params.id++, req.params.id++, req.params.id++]}})
+      .then((photos) => {
+        res.render('./gallery/photo', {photos});
+      });
   })
   .put(isAuthenticated,(req, res) => {
     Photo.findOne({where: {id : req.params.id}})

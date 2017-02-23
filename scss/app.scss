@@ -3,6 +3,7 @@
 @import "partials/colors";
 
 @import "partials/index";
+@import "partials/details";
 @import "partials/login";
 
 body {
@@ -41,7 +42,7 @@ body {
       padding: 0 20px 0 0;
       vertical-align: top;
 
-      @media( min-width: 728px ){
+      @media( min-width: 857px ){
         font-size: 4rem;
         border-right: 1px solid $borderGrey;
       }
@@ -54,10 +55,16 @@ body {
       text-align: left;
       display: none;
 
-      @media ( min-width: 728px ){
+      @media ( min-width: 857px ){
         display: inline-block;
       }
 
     }
+  }
+
+  footer {
+    height: 60px;
+    text-align: center;
+    color: $textMidGrey;
   }
 }

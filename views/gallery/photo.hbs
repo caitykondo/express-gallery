@@ -2,25 +2,19 @@
 <h1>Updated!</h1>
 {{/if}}
 <a href="/gallery">Back to Gallery</a>
-<div class="container">
-  <div class="photo">
-      <img src="{{link}}" alt="{{description}}">
-    <h1>By {{author}}</h1>
-    <p>{{description}}</p>
-    <h2>Source:</h2>
+<div id="details">
+  {{!-- <div class="photo">
+    <h2>{{author}}</h2>
     <a href="{{link}}">{{link}}</a>
-  <div>
-  <div class="side-bar">
+    <img src="{{link}}" alt="{{description}}">
+  <div> --}}
     {{#each photos}}
-      <div class="photo" data-photoId= "{{@index}}">
+      <div class="photo">
           <img src="{{link}}" alt="{{description}}">
-        <h1>By {{author}}</h1>
-        <p>{{description}}</p>
-        <h2>Source:</h2>
-        <a href="{{link}}">{{link}}</a>
-      <div>
+        <h2>{{author}}</h2>
+        <a class="link" href="{{link}}">{{link}}</a>
+      </div>
     {{/each}}
-  </div>
 </div>
 <div class="container">
   <a href="{{id}}/edit"><button>Edit</button></a>

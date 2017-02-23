@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session  = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const RedisStore = require('connect-redis')(session);
 const PORT = process.env.PORT || 3000;
 const app = express();
 const hbs = handlebars.create({
@@ -38,6 +39,7 @@ app.use(methodOverride((req, res) => {
 
 // authentication w/ passport
 app.use(session({
+  store: new RedisStore(),
   secret: "keyboard_cat"
 }));
 
