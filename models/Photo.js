@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   let Photo  = sequelize.define("Photo", {
-    author: DataTypes.STRING,
-    link: DataTypes.STRING,
-    description: DataTypes.STRING
+    author: DataTypes.TEXT,
+    link: DataTypes.TEXT,
+    description: DataTypes.TEXT
   }, {
     classMethods: {}
   });

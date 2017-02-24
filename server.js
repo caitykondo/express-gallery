@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
@@ -14,19 +16,21 @@ const hbs = handlebars.create({
 });
 
 // helpers
-const isAuthenticated = require('./helpers/isAuthenticated');
+// const isAuthenticated = require('./helpers/isAuthenticated');
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 // redis for cacheing
 const redis = require('redis');
-client = redis.createClient();
+let client = redis.createClient();
 const cache = require('express-redis-cache')({client: client, expire: 60});
 
 app.use(express.static('./'));
 
-app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.urlencoded({ extended : true }));
+
+// app.use(methodOverride('_method'));
 
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(methodOverride((req, res) => {
@@ -76,12 +80,12 @@ const {User} = db;
 // ROUTES
 const gallery = require('./routes/gallery');
 const login = require('./routes/login');
-const secret = require('./routes/secret');
+// const secret = require('./routes/secret');
 
 
 app.use('/gallery', cache.route(), gallery);
 app.use('/login', login);
-app.use('/secret', isAuthenticated, secret);
+// app.use('/secret', isAuthenticated, secret);
 
 
 app.listen(PORT, () => {

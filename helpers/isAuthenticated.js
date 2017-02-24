@@ -1,8 +1,8 @@
 function isAuthenticated(req, res, next) {
+  console.log('authenticating...');
   if(req.isAuthenticated()){
     next();
   }else{
-    console.log('not authenticated');
     res.redirect('/login');
   }
 }

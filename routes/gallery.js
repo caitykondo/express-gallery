@@ -14,13 +14,12 @@ router.route('/')
   });
 
 router.route('/new')
-  .get(isAuthenticated, (req, res) => {
-    res.render('./gallery/new');
-  })
-  .post(isAuthenticated, (req, res) => {
-    console.log(req.body);
+  .post( (req, res) => {
     Photo.create({ author: req.body.author, link: req.body.link, description: req.body.description })
-      .then((photo) => res.redirect(303, `/gallery/${photo.id}`));
+      .then((photo) => res.redirect(303, `/gallery/${photo.id}`))
+  })
+  .get( (req, res) => {
+    res.render('./gallery/new');
   });
 
 router.route('/:id')
@@ -31,7 +30,7 @@ router.route('/:id')
         res.render('./gallery/photo', {photos});
       });
   })
-  .put(isAuthenticated,(req, res) => {
+  .put((req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => {
         photo.update({ author: req.body.author, link: req.body.link, description: req.body.description });
@@ -39,16 +38,24 @@ router.route('/:id')
         res.render('./gallery/photo', photo.dataValues);
       });
   })
-  .delete(isAuthenticated, (req, res) => {
+  .post((req, res) =>{
+    res.send('posted');
+  })
+  .delete( (req, res) => {
+    console.log('hit');
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => {
-        photo.destroy();
+        console.log('hello');
+        return photo.destroy({ force: true });
+      })
+      .then(()=>{
+        console.log('done');
         res.redirect(303, '/gallery'); //add success message
       });
   });
 
 router.route('/:id/edit')
-  .get(isAuthenticated, (req, res) => {
+  .get( (req, res) => {
     Photo.findOne({where: {id : req.params.id}})
       .then((photo) => res.render('./gallery/edit', photo.dataValues));
   });

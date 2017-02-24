@@ -98,14 +98,12 @@ table {
         max-width: 32%; } }
   #index .photo:nth-child(6n+2), #index .photo:nth-child(6n+4), #index .photo:nth-child(6n+5), #index .photo:nth-child(6n+7) {
     padding: 16px 0; }
-  #index .photo:nth-child(3n+2) {
-    position: relative; }
-    @media (min-width: 728px) {
-      #index .photo:nth-child(3n+2):after {
-        content: '';
-        border-bottom: 1px dotted #999;
-        width: 312.5%;
-        right: 0; } }
+  @media (min-width: 728px) {
+    #index .photo:nth-child(3n+2):after {
+      content: '';
+      border-bottom: 1px dotted #999;
+      width: 312.5%;
+      right: 0; } }
 
 .subnav {
   margin: 0;
