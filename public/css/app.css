@@ -214,25 +214,35 @@ body {
   body img {
     width: 100%;
     margin: 0 auto; }
-  body .registration {
+  body a {
+    color: #8a8a8a;
+    display: inline-block;
+    text-decoration: none; }
+    body a:hover {
+      color: #333; }
+  body .top-links {
     width: 100%;
-    display: block;
-    text-align: right;
-    margin: 16px 0 0 0; }
-    body .registration a {
-      color: #8a8a8a;
-      display: inline-block;
-      padding: 8px 0 8px 8px;
-      text-decoration: none; }
-      body .registration a:hover {
-        color: #333; }
+    display: flex;
+    align-content: center;
+    justify-content: space-between; }
+    body .top-links .registration {
+      display: block;
+      text-align: right;
+      margin: 16px 0 0 0; }
+      body .top-links .registration a {
+        padding: 8px 0 8px 16px; }
+    body .top-links .new-photo {
+      border: 1px solid #8a8a8a;
+      display: block;
+      margin: 16px 0 0 0;
+      padding: 7px 10px; }
   body header {
     margin: 24px auto 0 auto;
     width: 100%;
     color: #8a8a8a;
     border-top: 1px dotted #999;
     padding: 28px 0 60px 0; }
-    body header a {
+    body header a:hover {
       color: #8a8a8a; }
     body header h1 {
       font-size: 3rem;
@@ -241,8 +251,7 @@ body {
       letter-spacing: 0.125rem;
       display: inline-block;
       width: relative;
-      padding: 0 20px 0 0;
-      vertical-align: top; }
+      padding: 0 20px 0 0; }
       @media (min-width: 857px) {
         body header h1 {
           font-size: 4rem;

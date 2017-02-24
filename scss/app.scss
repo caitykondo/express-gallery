@@ -23,19 +23,35 @@ body {
     margin: 0 auto;
   }
 
-  .registration {
+  a{
+    color: $textMidGrey;
+    display: inline-block;
+    text-decoration: none;
+    &:hover{
+      color: $textMidGreyHover;
+    }
+  }
+  .top-links{
     width: 100%;
-    display: block;
-    text-align: right;
-    margin: 16px 0 0 0;
-    a {
-      color: $textMidGrey;
-      display: inline-block;
-      padding: 8px 0 8px 8px;
-      text-decoration: none;
-      &:hover{
-        color: $textMidGreyHover;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+
+    .registration {
+      display: block;
+      text-align: right;
+      margin: 16px 0 0 0;
+      a {
+        padding: 8px 0 8px 16px;
       }
+    }
+
+    .new-photo{
+      border: 1px solid $textMidGrey;
+      display: block;
+      margin: 16px 0 0 0;
+      padding: 7px 10px;
     }
   }
 
@@ -47,7 +63,9 @@ body {
     padding: 28px 0 60px 0;
 
     a {
-      color: $textMidGrey;
+      &:hover {
+        color: $textMidGrey;
+      }
     }
 
     h1{
@@ -58,7 +76,6 @@ body {
       display: inline-block;
       width: relative;
       padding: 0 20px 0 0;
-      vertical-align: top;
 
       @media( min-width: 857px ){
         font-size: 4rem;

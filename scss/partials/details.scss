@@ -52,21 +52,19 @@
       img{
         width: 100%;
         display: block;
-
       }
       h2, a {
         width: 100%;
         overflow:hidden;
         display: block;
-        // order: 1;
       }
     }
   }
 
   .photo:nth-child(n+2){
-      .controls{
-        display: none;
-      }
+    .controls{
+      display: none;
+    }
      @media(min-width: 857px){
       width: 20%;
       padding: 0 0 16px 2%;

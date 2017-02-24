@@ -1,29 +1,26 @@
 {{#if updated}}
 <h1>Updated!</h1>
 {{/if}}
-  <div class="container">
-    <div class="subnav">
-      <a href="/gallery"> &#171; Back to Gallery</a>
-      {{!-- rework delete to throw confirmation before deletion --}}
-    </div>
-  </div>
+<a href="/gallery">Back to Gallery</a>
 <div id="details">
-
-  {{#each photos}}
-    {{!-- {{id}} --}}
-    <div class="photo">
-      <a href="/gallery/{{id}}">
-        <img src="{{link}}" alt="{{description}}">
-      </a>
-      <h2>{{author}}</h2>
-      <a class="link" href="{{link}}">{{link}}</a>
-      <div class="controls">
-        <a href="{{id}}/edit"><button>Edit</button></a>
-        <form method="POST" action="/gallery/{{id}}">
-          <input type="hidden" name="_method" value="DELETE">
-          <button type="submit">Delete</button>
-        </form>
+ {{!--  <div class="photo">
+    <h2>{{author}}</h2>
+    <a href="{{link}}">{{link}}</a>
+    <img src="{{link}}" alt="{{description}}">
+  <div> --}}
+    {{#each photos}}
+      <div class="photo">
+          <img src="{{link}}" alt="{{description}}">
+        <h1>{{author}}</h1>
+        <a href="{{link}}">{{link}}</a>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+</div>
+<div class="container">
+  <a href="{{id}}/edit"><button>Edit</button></a>
+  {{!-- rework delete to throw confirmation before deletion --}}
+  <form method="POST" action="/gallery/{{id}}">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+  </form>
 </div>
