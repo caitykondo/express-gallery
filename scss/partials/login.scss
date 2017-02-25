@@ -1,9 +1,5 @@
 #login{
-  form {
-    label{
-      text-align:left;
-      padding: 10px 0;
-      display: block;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

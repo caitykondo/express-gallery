@@ -162,10 +162,10 @@ table {
       width: 20%;
       padding: 0 0 16px 2%; } }
 
-#login form label {
-  text-align: left;
-  padding: 10px 0;
-  display: block; }
+#login {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
 
 #edit {
   margin: auto;
@@ -179,26 +179,16 @@ table {
     @media (min-width: 857px) {
       #edit .photo {
         width: 60%; } }
-  #edit #editPhoto {
+  #edit #editPhoto form {
     width: 20%;
     margin-left: 5%; }
-    #edit #editPhoto label {
+    #edit #editPhoto form label {
       text-align: left;
       display: block; }
-    #edit #editPhoto input {
+    #edit #editPhoto form input {
       width: 100%;
       margin: 4px 0 16px 0;
       font-size: 0.75rem; }
-    #edit #editPhoto input#editPhotoButton {
-      background: #fff;
-      border: 1px solid #8a8a8a;
-      color: #8a8a8a;
-      padding: 8px 12px;
-      text-transform: uppercase; }
-      #edit #editPhoto input#editPhotoButton:hover {
-        cursor: pointer;
-        color: #333;
-        border: 1px solid #333; }
 
 body {
   font-family: 'Arial', sans-serif; }
@@ -263,6 +253,32 @@ body {
       @media (min-width: 857px) {
         body header aside {
           display: inline-block; } }
+  body form {
+    width: 60%;
+    padding: 0 16px; }
+    body form label {
+      text-align: left;
+      padding: 10px 0;
+      display: block;
+      width: 100%;
+      margin: 0 0 4px 0; }
+    body form input {
+      border: 1px solid #8a8a8a;
+      width: 100%;
+      margin: 0 0 8px 0; }
+    body form input.button {
+      background: #fff;
+      border: 1px solid #8a8a8a;
+      color: #8a8a8a;
+      padding: 8px 12px;
+      text-transform: uppercase; }
+      body form input.button:hover {
+        cursor: pointer;
+        color: #333;
+        border: 1px solid #333; }
+    @media (min-width: 857px) {
+      body form {
+        width: 320px; } }
   body footer {
     height: 60px;
     text-align: center;
