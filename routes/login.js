@@ -37,7 +37,7 @@ router.route('/signup')
 router.route('/logout')
   .get((req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect(303, '/login');
 });
 
 module.exports = router;
