@@ -14,6 +14,9 @@ const hbs = handlebars.create({
   extname: 'hbs',
   defaultLayout: 'app',
 });
+const bcrypt = require('bcrypt-nodejs');
+
+const saltRounds = 10;
 
 // helpers
 // const isAuthenticated = require('./helpers/isAuthenticated');
@@ -49,17 +52,30 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-//
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({username, password})
-      .then((user) => {
-      console.log(true);
-      return done( null, user );
-      })
-      .catch((err) => {
-        return done(null, err);
-      });
+    User.findOne({
+      where: {
+        username: username
+      }
+    }).then((user) => {
+      if(user === null){
+        console.log('user failed');
+        return done(null, false, {message: 'bad username'});
+      }else{
+        bcrypt.compare(password, user.password).then((res)=> {
+          if(res){
+            return done(null, user);
+          }else{
+            return done(null, false, {message: 'bad password'});
+          }
+        });
+      }
+    })
+    .catch((err) => {
+      return done(null, err);
+    });
   }
 ));
 
