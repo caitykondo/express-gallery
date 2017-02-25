@@ -162,10 +162,14 @@ table {
       width: 20%;
       padding: 0 0 16px 2%; } }
 
-#login {
+#login, #signup {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   width: 100%; }
+  #login h1, #signup h1 {
+    width: 100%;
+    text-align: center; }
 
 #edit {
   margin: auto;
@@ -189,6 +193,11 @@ table {
       width: 100%;
       margin: 4px 0 16px 0;
       font-size: 0.75rem; }
+
+#new {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 body {
   font-family: 'Arial', sans-serif; }
@@ -265,7 +274,8 @@ body {
     body form input {
       border: 1px solid #8a8a8a;
       width: 100%;
-      margin: 0 0 8px 0; }
+      margin: 0 0 8px 0;
+      min-height: 20px; }
     body form input.button {
       background: #fff;
       border: 1px solid #8a8a8a;

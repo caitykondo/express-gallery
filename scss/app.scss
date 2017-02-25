@@ -6,6 +6,7 @@
 @import "partials/details";
 @import "partials/login";
 @import "partials/edit";
+@import "partials/new";
 
 body {
   font-family: 'Arial', sans-serif;
@@ -112,6 +113,7 @@ body {
       border: 1px solid $textMidGrey;
       width: 100%;
       margin: 0 0 8px 0;
+      min-height: 20px;
     }
     input.button{
       background: #fff;

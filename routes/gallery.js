@@ -71,11 +71,7 @@ router.route('/:id')
       }
     })
     .then((photo) => {
-      console.log('hello');
-      return photo.destroy({ force: true });
-    })
-    .then(()=>{
-      console.log('done');
+      photo.destroy({ force: true });
       res.redirect(303, '/gallery'); //add success message
     });
   });

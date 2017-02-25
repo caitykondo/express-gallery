@@ -13,9 +13,9 @@
       <div class="controls">
         <a id="editButton" href="{{id}}/edit"><button>Edit</button></a>
         {{!-- rework delete to throw confirmation before deletion --}}
-        <form id="deleteButton" method="POST" action="/{{id}}" enctype="application/x-www-form-urlencoded">
+        <form id="deleteButton" method="POST" action="/gallery/{{id}}" enctype="application/x-www-form-urlencoded">
           <input type="hidden" name="_method" value="DELETE">
-          <button type="submit">Delete</button>
+          <button class="button" type="submit">Delete</button>
         </form>
 
       </div>

@@ -47,7 +47,9 @@ app.use(methodOverride((req, res) => {
 // authentication w/ passport
 app.use(session({
   store: new RedisStore(),
-  secret: "keyboard_cat"
+  secret: "keyboard_cat",
+  resave: false,
+  saveUnititialized: true
 }));
 
 app.use(passport.initialize());
@@ -61,7 +63,6 @@ passport.use(new LocalStrategy(
       }
     }).then((user) => {
       if(user === null){
-        console.log('user failed');
         return done(null, false, {message: 'bad username'});
       }else{
         bcrypt.compare(password, user.password).then((res)=> {
@@ -99,7 +100,7 @@ const login = require('./routes/login');
 // const secret = require('./routes/secret');
 
 
-app.use('/gallery', cache.route(), gallery);
+app.use('/gallery', gallery);
 app.use('/login', login);
 // app.use('/secret', isAuthenticated, secret);
 
