@@ -1,9 +1,7 @@
 const express = require('express');
 let router = express.Router();
-
 const db = require('./../models');
 const { Photo } = db;
-
 const isAuthenticated = require('./../helpers/isAuthenticated');
 
 router.route('/')
