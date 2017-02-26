@@ -170,6 +170,11 @@ table {
   #login h1, #signup h1 {
     width: 100%;
     text-align: center; }
+  #login .message, #signup .message {
+    background-color: red;
+    color: white;
+    text-align: left;
+    padding: 4px; }
 
 #edit {
   margin: auto;
