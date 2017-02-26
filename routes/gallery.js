@@ -2,7 +2,6 @@ const express = require('express');
 let router = express.Router();
 const db = require('./../models');
 const { Photo } = db;
-const isAuthenticated = require('./../helpers/isAuthenticated');
 
 router.route('/')
   .get((req, res) => {
@@ -21,12 +20,12 @@ router.route('/new')
     })
       .then((photo) => res.redirect(303, `/gallery/${photo.id}`))
   })
-  .get(isAuthenticated, (req, res) => {
+  .get((req, res) => {
     res.render('./gallery/new', {user: req.body.user});
   });
 
 router.route('/:id/edit')
-  .get( isAuthenticated, (req, res) => {
+  .get((req, res) => {
     Photo.findOne({
       where: {
         id : req.params.id
@@ -49,7 +48,7 @@ router.route('/:id')
         res.render('./gallery/photo', {photos, user: req.body.user});
       });
   })
-  .put(isAuthenticated, (req, res) => {
+  .put((req, res) => {
     Photo.findOne({
         where: {
           id : req.params.id
@@ -65,7 +64,7 @@ router.route('/:id')
         res.render('./gallery/photo', {photos, user: req.body.user});
       });
   })
-  .delete( isAuthenticated, (req, res) => {
+  .delete((req, res) => {
     Photo.findOne({
       where: {
         id : req.params.id
