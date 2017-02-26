@@ -6,11 +6,12 @@ const { Photo } = db;
 
 const isAuthenticated = require('./../helpers/isAuthenticated');
 
-
 router.route('/')
   .get((req, res) => {
     Photo.findAll()
-      .then((photos) => res.render('./gallery/', {photos}));
+      .then((photos) => {
+        res.render('./gallery/', {photos, user: req.body.user});
+    });
   });
 
 router.route('/new')
@@ -23,17 +24,20 @@ router.route('/new')
       .then((photo) => res.redirect(303, `/gallery/${photo.id}`))
   })
   .get(isAuthenticated, (req, res) => {
-    res.render('./gallery/new');
+    res.render('./gallery/new', {user: req.body.user});
   });
 
 router.route('/:id/edit')
-  .get( (req, res) => {
+  .get( isAuthenticated, (req, res) => {
     Photo.findOne({
       where: {
         id : req.params.id
       }
     })
-    .then((photo) => res.render('./gallery/edit', photo.dataValues))
+    .then((photo) => {
+      photo.dataValues.user = req.body.user;
+      res.render('./gallery/edit', photo.dataValues);
+    });
   });
 
 router.route('/:id')
@@ -44,7 +48,7 @@ router.route('/:id')
         }
       })
       .then((photos) => {
-        res.render('./gallery/photo', {photos});
+        res.render('./gallery/photo', {photos, user: req.body.user});
       });
   })
   .put(isAuthenticated, (req, res) => {
@@ -53,18 +57,17 @@ router.route('/:id')
           id : req.params.id
         }
       })
-      .then((photo) => {
-        photo.update({
+      .then((photos) => {
+        photos.update({
           author: req.body.author,
           link: req.body.link,
           description: req.body.description
         });
-        photo.dataValues.updated = true;
-        res.render('./gallery/photo', photo.dataValues);
+        photos.dataValues.updated = true;
+        res.render('./gallery/photo', {photos, user: req.body.user});
       });
   })
   .delete( isAuthenticated, (req, res) => {
-    console.log('hit');
     Photo.findOne({
       where: {
         id : req.params.id

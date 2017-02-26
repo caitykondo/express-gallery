@@ -11,10 +11,15 @@
       <div class="new-photo">
         <a href="/gallery/new">+ New Photo</a>
       </div>
-      <div class="registration">
-        <a href="/login">Login</a>
-        <a href="/login/signup">Sign Up</a>
-      </div>
+        <div class="registration">
+          {{#unless user}}
+            <a href="/login">Login</a>
+            <a href="/login/signup">Sign Up</a>
+          {{/unless}}
+          {{#if user}}
+            <a href="/login/signout">Sign Out</a>
+          {{/if}}
+        </div>
     </div>
     <header>
       <a href="/gallery"><h1>_Architekt</h1></a>

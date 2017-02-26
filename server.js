@@ -10,6 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const RedisStore = require('connect-redis')(session);
 const PORT = process.env.PORT || 3000;
 const app = express();
+
 const hbs = handlebars.create({
   extname: 'hbs',
   defaultLayout: 'app',
@@ -19,6 +20,7 @@ const bcrypt = require('bcrypt-nodejs');
 const saltRounds = 10;
 
 // helpers
+const getUser = require('./helpers/getUser');
 // const isAuthenticated = require('./helpers/isAuthenticated');
 
 app.engine('hbs', hbs.engine);
@@ -97,12 +99,9 @@ const {User} = db;
 // ROUTES
 const gallery = require('./routes/gallery');
 const login = require('./routes/login');
-// const secret = require('./routes/secret');
 
-
-app.use('/gallery', gallery);
+app.use('/gallery', getUser, gallery);
 app.use('/login', login);
-// app.use('/secret', isAuthenticated, secret);
 
 
 app.listen(PORT, () => {
