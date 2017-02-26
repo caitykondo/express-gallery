@@ -1,8 +1,11 @@
-<h1>Sign Up</h1>
 <div id="signup">
+  <h1>Sign Up</h1>
   <form name="signup" id="signupform" action="/login/signup" method="POST">
     <label for="username">Username</label>
     <input type="text" name="username">
+    <div>
+    <h2>{{message}}</h2>
+    </div>
 
     <label for="password">Password</label>
     <input type="text" name="password">
