@@ -13,7 +13,7 @@ router.route('/')
       }
     })
       .then((photos)=> {
-        res.send(photos);
+        res.render('./search', {photos});
     });
   });
 module.exports = router;

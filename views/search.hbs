@@ -1,0 +1,10 @@
+{{#each photos}}
+  <div class="photo">
+    <a href="/gallery/{{id}}">
+      <img src="{{link}}" alt="{{description}}">
+    </a>
+    <h1 class="author">{{author}}</h1>
+    <a class="link" href="{{link}}">{{link}}</a>
+    <p class="description">{{description}}</p>
+  </div>
+{{/each}}
