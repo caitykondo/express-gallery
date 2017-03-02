@@ -232,6 +232,8 @@ table {
   justify-content: center; }
 
 #search {
+  margin: 0 auto;
+  align-self: center;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
