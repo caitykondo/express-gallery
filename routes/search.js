@@ -4,7 +4,16 @@ const db = require('./../models');
 const { Photo } = db;
 
 router.route('/')
-  .get((req, res)=>{
-    console.log('SEARCHHHH ');
+  .post((req, res)=>{
+    Photo.findAll({
+      where: {
+        description: {
+          $like: `%${req.body.keyword}%`
+        }
+      }
+    })
+      .then((photos)=> {
+        res.send(photos);
+    });
   });
 module.exports = router;
