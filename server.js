@@ -33,6 +33,7 @@ const {User} = db;
 // ROUTES
 const gallery = require('./routes/gallery');
 const login = require('./routes/login');
+const search = require('./routes/search');
 
 app.use(express.static('./'));
 
@@ -105,11 +106,14 @@ passport.deserializeUser(function(user, done) {
   return done(null, user);
 });
 
+// routes
 app.get('/', (req, res)=>{
   req.flash('info', 'flash is back');
   res.redirect(303, '/gallery');
 });
+
 app.use('/login', login);
+app.use('/search', search);
 
 app.use((req, res, next)=> {
   if(req.method === 'GET'){
