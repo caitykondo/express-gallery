@@ -2,7 +2,7 @@
 <h1>Updated!</h1>
 {{/if}}
   <div class="container">
-    <a class="return-button" href="/gallery">Back to Gallery</a>
+    <a class="return-button" href="/gallery">&larr; Back to Gallery</a>
   </div>
 <div id="details">
   {{#each photos}}
@@ -10,8 +10,9 @@
       <a href="/gallery/{{id}}">
         <img src="{{link}}" alt="{{description}}">
       </a>
-      <h1>{{author}}</h1>
-      <a href="{{link}}">{{link}}</a>
+      <h1 class="author">{{author}}</h1>
+      <a class="link" href="{{link}}">{{link}}</a>
+      <p class="description">{{description}}</p>
       <div class="controls">
         <a id="editButton" href="{{id}}/edit"><button>Edit</button></a>
         {{!-- rework delete to throw confirmation before deletion --}}

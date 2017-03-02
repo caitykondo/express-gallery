@@ -89,7 +89,7 @@ table {
   #index .photo:nth-child(n+2) {
     padding: 16px 2%;
     width: 100%;
-    max-height: 200px; }
+    max-height: 300px; }
     #index .photo:nth-child(n+2) a {
       overflow: hidden;
       margin-bottom: 16px; }
@@ -118,6 +118,9 @@ table {
     color: #000;
     font-size: 0.75rem;
     letter-spacing: 1px; }
+
+.return-button {
+  padding: 16px 0; }
 
 #details {
   display: flex;
@@ -149,12 +152,12 @@ table {
       display: flex;
       flex-flow: column nowrap; }
       #details .photo:first-child img {
+        padding: 0 0 8px 0;
         width: 100%;
         display: block; }
-      #details .photo:first-child h2, #details .photo:first-child a {
-        width: 100%;
-        overflow: hidden;
-        display: block; } }
+      #details .photo:first-child .author, #details .photo:first-child .link {
+        order: -1;
+        padding: 0 0 8px 0; } }
   #details .controls {
     padding: 16px 0;
     display: flex;
@@ -173,6 +176,8 @@ table {
       #details .controls button:hover {
         color: #333;
         border: 1px solid #333; }
+  #details .photo:nth-child(n+2) p {
+    display: none; }
   #details .photo:nth-child(n+2) .controls {
     display: none; }
   @media (min-width: 857px) {
@@ -216,6 +221,10 @@ table {
       width: 100%;
       margin: 4px 0 16px 0;
       font-size: 0.75rem; }
+  #edit textarea {
+    width: 100%;
+    min-height: 3rem;
+    margin-bottom: 8px; }
 
 #new {
   width: 100%;

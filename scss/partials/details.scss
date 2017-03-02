@@ -16,6 +16,10 @@
   }
 }
 
+.return-button{
+  padding: 16px 0;
+}
+
 #details {
   display: flex;
   flex-flow: column wrap;
@@ -50,13 +54,13 @@
       display: flex;
       flex-flow: column nowrap;
       img{
+        padding: 0 0 8px 0;
         width: 100%;
         display: block;
       }
-      h2, a {
-        width: 100%;
-        overflow:hidden;
-        display: block;
+      .author, .link {
+        order: -1;
+        padding: 0 0 8px 0;
       }
     }
   }
@@ -84,6 +88,9 @@
   }
 
   .photo:nth-child(n+2){
+    p{
+      display: none;
+    }
     .controls{
       display: none;
     }

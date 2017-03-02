@@ -27,7 +27,11 @@
       margin: 4px 0 16px 0;
       font-size: 0.75rem;
     }
-
+  }
+  textarea{
+    width: 100%;
+    min-height: 3rem;
+    margin-bottom: 8px;
   }
 
 }
