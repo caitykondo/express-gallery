@@ -19,6 +19,48 @@ body {
     flex-flow: row wrap;
   }
 
+  form {
+    width: 60%;
+    padding: 0 16px;
+    label{
+      text-align:left;
+      padding: 10px 0;
+      display: block;
+      width: 100%;
+      margin: 0 0 4px 0;
+    }
+
+    input {
+      border: 1px solid $textMidGrey;
+      width: 100%;
+      margin: 0 0 8px 0;
+      min-height: 20px;
+    }
+    input.button{
+      background: #fff;
+      border: 1px solid $textMidGrey;
+      color: $textMidGrey;
+      padding: 8px 12px;
+      text-transform: uppercase;
+
+      &:hover{
+        cursor: pointer;
+        color: $textMidGreyHover;
+        border: 1px solid $textMidGreyHover;
+      }
+    }
+
+    @media(min-width: 857px){
+      width: 320px;
+    }
+  }
+
+  footer {
+    height: 60px;
+    text-align: center;
+    color: $textMidGrey;
+  }
+
   img {
     width: 100%;
     margin: 0 auto;
@@ -28,6 +70,7 @@ body {
     color: $textMidGrey;
     display: inline-block;
     text-decoration: none;
+
     &:hover{
       color: $textMidGreyHover;
     }
@@ -37,12 +80,50 @@ body {
     display: flex;
     align-content: center;
     justify-content: space-between;
+    margin: 16px 0 0 0;
 
+    .search{
+      form{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        input{
+          width: 70%;
+        }
+
+        #search-button{
+          width: 10%;
+        }
+      }
+      @media(min-width: 857px){
+        display: flex nowrap;
+        justify-content: flex-end;
+
+        form {
+          padding: 0;
+        }
+
+        input {
+          width: 85%;
+          margin: 0;
+        }
+
+        #search-button{
+          width: 10%;
+          background: none;
+          &:hover{
+            cursor: pointer;
+            color: $textMidGreyHover;
+            border: 1px solid $textMidGreyHover;
+          }
+        }
+        width: 320px;
+      }
+    }
 
     .registration {
       display: block;
       text-align: right;
-      margin: 16px 0 0 0;
       a {
         padding: 8px 0 8px 16px;
       }
@@ -51,8 +132,12 @@ body {
     .new-photo{
       border: 1px solid $textMidGrey;
       display: block;
-      margin: 16px 0 0 0;
       padding: 7px 10px;
+      height: 16px;
+      &:hover {
+        border: 1px solid $textMidGreyHover;
+        color: $textMidGreyHover;
+      }
     }
   }
 
@@ -96,47 +181,5 @@ body {
       }
 
     }
-  }
-
-  form {
-    width: 60%;
-    padding: 0 16px;
-    label{
-      text-align:left;
-      padding: 10px 0;
-      display: block;
-      width: 100%;
-      margin: 0 0 4px 0;
-    }
-
-    input {
-      border: 1px solid $textMidGrey;
-      width: 100%;
-      margin: 0 0 8px 0;
-      min-height: 20px;
-    }
-    input.button{
-      background: #fff;
-      border: 1px solid $textMidGrey;
-      color: $textMidGrey;
-      padding: 8px 12px;
-      text-transform: uppercase;
-      &:hover{
-        cursor: pointer;
-        color: $textMidGreyHover;
-        border: 1px solid $textMidGreyHover;
-      }
-    }
-
-
-    @media(min-width: 857px){
-      width: 320px;
-    }
-  }
-
-  footer {
-    height: 60px;
-    text-align: center;
-    color: $textMidGrey;
   }
 }

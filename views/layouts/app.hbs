@@ -11,15 +11,21 @@
       <div class="new-photo">
         <a href="/gallery/new">+ New Photo</a>
       </div>
-        <div class="registration">
-          {{#unless user}}
-            <a href="/login">Login</a>
-            <a href="/login/signup">Sign Up</a>
-          {{/unless}}
-          {{#if user}}
-            <a href="/login/logout">Sign Out</a>
-          {{/if}}
+      <div class="registration">
+        {{#unless user}}
+          <a href="/login">Login</a>
+          <a href="/login/signup">Sign Up</a>
+        {{/unless}}
+        {{#if user}}
+          <a href="/login/logout">Sign Out</a>
+        {{/if}}
+        <div class="search">
+          <form action="/search" method="POST">
+            <input name= "keyword" type="text" placeholder="Search Photos">
+            <input id="search-button" type=button type="submit" value="&#128269;">
+          </form>
         </div>
+      </div>
     </div>
     <header>
       <a href="/gallery"><h1>_Architekt</h1></a>
