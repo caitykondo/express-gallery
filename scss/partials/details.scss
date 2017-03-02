@@ -60,6 +60,28 @@
       }
     }
   }
+  .controls{
+    padding: 16px 0;
+    display: flex;
+    align-content: flex-end;
+    #editButton, #deleteButton{
+      width: inherit;
+      display: inline-block;
+    }
+    button{
+      text-transform: uppercase;
+      color: $textMidGrey;
+      padding: 7px 10px;
+      background: $trueWhite;
+      border: solid 1px $textMidGrey;
+      margin: 0 0 16px 0;
+      cursor: pointer;
+      &:hover{
+        color: $textMidGreyHover;
+        border: 1px solid $textMidGreyHover;
+      }
+    }
+  }
 
   .photo:nth-child(n+2){
     .controls{

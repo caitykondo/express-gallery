@@ -50,13 +50,6 @@ app.use(methodOverride((req, res) => {
   }
 }));
 
-app.use((req, res, next)=> {
-  if(req.method === 'GET'){
-    next();
-  }else{
-    isAuthenticated(req, res, next);
-  }
-});
 
 app.use(cookieParser('secret'));
 // connect-flash
@@ -116,9 +109,17 @@ app.get('/', (req, res)=>{
   req.flash('info', 'flash is back');
   res.redirect(303, '/gallery');
 });
-app.use('/gallery', getUser, gallery);
 app.use('/login', login);
 
+app.use((req, res, next)=> {
+  if(req.method === 'GET'){
+    next();
+  }else{
+    isAuthenticated(req, res, next);
+  }
+});
+
+app.use('/gallery', getUser, gallery);
 
 app.listen(PORT, () => {
   console.log('listening on', PORT);
