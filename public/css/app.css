@@ -89,7 +89,7 @@ table {
   #index .photo:nth-child(n+2) {
     padding: 16px 2%;
     width: 100%;
-    max-height: 300px; }
+    max-height: 250px; }
     #index .photo:nth-child(n+2) a {
       overflow: hidden;
       margin-bottom: 16px; }
@@ -230,6 +230,24 @@ table {
   width: 100%;
   display: flex;
   justify-content: center; }
+
+#search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 90%; }
+  #search .photo {
+    width: 90%;
+    margin: 16px 0;
+    overflow: hidden; }
+  @media (min-width: 857px) {
+    #search {
+      justify-content: space-around; }
+      #search .photo {
+        width: 45%;
+        margin: 16px 0; }
+        #search .photo img {
+          max-height: 300px; } }
 
 body {
   font-family: 'Arial', sans-serif; }

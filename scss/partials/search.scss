@@ -1,0 +1,25 @@
+#search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 90%;
+
+  .photo {
+    width: 90%;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+
+  @media(min-width: 857px){
+  justify-content: space-around;
+
+   .photo {
+    width: 45%;
+    margin: 16px 0;
+
+      img{
+        max-height: 300px;
+      }
+    }
+  }
+}
