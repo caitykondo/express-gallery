@@ -115,7 +115,7 @@ app.get('/', (req, res)=>{
 });
 
 app.use('/login', login);
-app.use('/search', search);
+app.use('/search', getUser, search);
 
 app.use((req, res, next)=> {
   if(req.method === 'GET'){

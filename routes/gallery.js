@@ -46,28 +46,14 @@ router.route('/:id')
   .get((req, res) => {
     Photo.findAll({
         where: {
-          $or: [
-            {
-              $and: {
-                id: {
-                  $gt: req.params.id
-                },
-                link: {
-                  $ne: null
-                }
-              }
+          $and: {
+            id: {
+              $gte: req.params.id
             },
-            {
-              $and: {
-                id: {
-                  $lt: req.params.id
-                },
-                link: {
-                  $ne: null
-                }
-              }
+            link: {
+              $ne: null
             }
-          ],
+          }
         },
       limit: 4
       })
