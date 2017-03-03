@@ -46,8 +46,30 @@ router.route('/:id')
   .get((req, res) => {
     Photo.findAll({
         where: {
-          id : [req.params.id++, req.params.id++, req.params.id++]
-        }
+          $or: [
+            {
+              $and: {
+                id: {
+                  $gt: req.params.id
+                },
+                link: {
+                  $ne: null
+                }
+              }
+            },
+            {
+              $and: {
+                id: {
+                  $lt: req.params.id
+                },
+                link: {
+                  $ne: null
+                }
+              }
+            }
+          ],
+        },
+      limit: 4
       })
       .then((photos) => {
         res.render('./gallery/photo', {photos, user: req.body.user});
