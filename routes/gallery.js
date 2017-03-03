@@ -56,10 +56,10 @@ router.route('/:id')
           }
         },
       limit: 4
-      })
-      .then((photos) => {
-        res.render('./gallery/photo', {photos, user: req.body.user});
-      });
+    })
+    .then((photos) => {
+      res.render('./gallery/photo', {photos, user: req.body.user});
+    });
   })
   .put((req, res) => {
     Photo.findOne({
