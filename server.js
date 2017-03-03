@@ -79,14 +79,17 @@ passport.use(new LocalStrategy(
       }
     }).then((user) => {
       if(user === null){
+        console.log('NO USER');
         return done(null, false, {message: 'bad username'});
       }else{
-        bcrypt.compare(password, user.password).then((res)=> {
-          if(res){
-            return done(null, user);
-          }else{
-            return done(null, false, {message: 'bad password'});
-          }
+        bcrypt.compare(password, user.password, (err, res) => {
+
+            if(err){
+              return done(null, false, {message: 'bad password'});
+            }else{
+
+              return done(null, user);
+            }
         });
       }
     })

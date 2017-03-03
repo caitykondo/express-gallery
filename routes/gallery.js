@@ -13,12 +13,17 @@ router.route('/')
 
 router.route('/new')
   .post((req, res) => {
-    Photo.create({
-      author: req.body.author,
-      link: req.body.link,
-      description: req.body.description
-    })
-      .then((photo) => res.redirect(303, `/gallery/${photo.id}`))
+    console.log(req.body);
+    if(req.body.link  && req.body.description){
+      Photo.create({
+        author: req.body.user,
+        description: req.body.description,
+        link: req.body.link
+      })
+        .then((photo) => res.redirect(303, `/gallery/${photo.id}`));
+    }else{
+      res.render('./gallery/new', {error: true});
+    }
   })
   .get((req, res) => {
     res.render('./gallery/new', {user: req.body.user});
