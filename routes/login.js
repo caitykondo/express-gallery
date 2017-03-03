@@ -22,9 +22,9 @@ router.route('/signup')
     res.render('./signup');
   })
   .post(checkIfExists, (req, res) => {
-    if(req.exists === false){
-      bcrypt.genSalt(saltRounds, function(err, salt) {
-        bcrypt.hash(req.body.password, salt, null, function(err, hash) {
+    if(req.exists !== true){
+      bcrypt.genSalt(saltRounds, (err, salt) => {
+        bcrypt.hash(req.body.password, null, null, (err, hash) => {
           User.create({
            username: req.body.username,
            password: hash
