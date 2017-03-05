@@ -1,15 +1,15 @@
 <div id="new">
   {{#if error}}
-    <div class="error">
+    <div class="message">
       All fields are required
     </div>
   {{/if}}
   <form name="newPhoto" id="newPhoto" action="/gallery/new" method="POST">
-    <label for="description">Description</label>
-    <input type="text" name="description">
-
     <label for="link">Link</label>
     <input type="text" name="link">
+
+    <label for="description">Description</label>
+    <input type="text" name="description">
     <input class="button" id="newPhoto" type="submit" value="Submit">
   </form>
 </div>

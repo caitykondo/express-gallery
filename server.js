@@ -63,7 +63,7 @@ app.use(session({
   resave: false,
   saveUnititialized: true,
   cookie: {
-    maxAge: 60000
+    maxAge: 600000
   },
 }));
 
@@ -82,11 +82,9 @@ passport.use(new LocalStrategy(
         return done(null, false, {message: 'bad username'});
       }else{
         bcrypt.compare(password, user.password, (err, res) => {
-
             if(err){
               return done(null, false, {message: 'bad password'});
             }else{
-
               return done(null, user);
             }
         });

@@ -29,7 +29,7 @@ router.route('/:keyword')
       ]
     }
     }).then((photos)=> {
-      res.render('./search', { photos });
+      res.render('./search', { photos, user: req.body.user });
   });
 });
 
